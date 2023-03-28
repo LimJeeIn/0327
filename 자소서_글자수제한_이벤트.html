@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <html lang="ko-KR">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title></title>
+    </head>
+    <body>
+        <!-- 글자수 세어주는 이벤트-->
+      <textarea onkeydown="result();" id="test">
+저는 인성 문제가 없습니다.</textarea
+      >
+      <span id="count">(0/200)</span>
+      <script>
+        // 200글자 이하로 제한
+        // .substring(해당숫자이상, 해당숫자미만)
+        function result() {
+            var content = document.getElementById('test').value;
+          if(content.length > 200) { //200글자를 넘어간다면
+            content = content.substring(0,200) //0부터 200글자까지
+            document.getElementById('test').value = content; // 200글자 넘어가더라도 잘린값이 다시 들어가게됨 
+          }
+            document.getElementById('count').innerHTML = '(' + content.length + '/200)';
+        }
+        result();
+        
+      </script>
+    </body>
+  </html>
+</html>

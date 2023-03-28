@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <!-- 이벤트 목적 :
+        드론을 클릭했을 때 침이 발사되고 벙커를 파괴한다-->
+    <!-- 
+   
+    1.  침이 나오도록 .fadeIn()
+    드론의 아이디를 getElementById로 가져온뒤 .click 이벤트를 적용.
+    드론을 클릭시 함수 안의 침id를 가져온 뒤 실행 .fadeIn() 이벤트를 적용하여 침이 서서히 보이게 한다
+        
+    2. 침을 이동 .animate(properties)
+    animate(properties) - 변화할 css, properties는 필수 기재사항
+    animate(properties , [duration], [easing], [complete])
+                            지속시간 , 어떤형태 ,완료시 어떤걸 동작
+    properties뒤의 속성은 선택사항
+
+    3. 이동한 침 사라지기 .fadeOut()
+
+    4. 이벤트 발생된 자리로 .css()
+    하지만 3번을 한번 클릭 이후에 다른 자리에서 침 이벤트가 발생되는데
+    다시 원래 자리에서 침이 나오도록 하려면 원래 css left 값을 적용한다
+    
+    5. 침을 맞으면 HP 깎이기
+    침이 fadeOut 된 다음 hp 깎이기
+
+    6. hp 가 모두 깍이면 벙커 사라지게 하기
+    if문
+    -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // 1.
+      //   $('#드론id').click(function () {
+      //     $('#침id').fadeIn();
+      //   });
+
+      //2.
+      //   $('#드론id').click(function () {
+      //     $('#침id').fadeIn();
+      //     $('#침id').animate({ left: '+=250' }); // 침을 오른쪽으로 발사, 왼쪽으로부터 250 간격줌
+      //   });
+
+      //3.
+      //   $('#드론id').click(function () {
+      //     $('#침id').fadeIn();
+      //     $('#침id').animate({ left: '+=250' }); // 침을 오른쪽으로 발사, 왼쪽으로부터 250 간격줌
+      //     $('#침id').fadeOut();
+      //   });
+
+      //4.
+      //   $('#드론id').click(function () {
+      //     $('#침id').fadeIn();
+      //     $('#침id').animate({ left: '+=250' }); // 침을 오른쪽으로 발사, 왼쪽으로부터 250 간격줌
+      //     $('#침id').fadeOut();
+      //     $('#침#').css({ left: '150px' }); //원래 위치의 css left 값
+      //   });
+
+      // 5.
+      //   var hp = 3;
+      //   $('#드론id').click(function () {
+      //     $('#침id').fadeIn();
+      //     $('#침id').animate({ left: '+=250' }); // 침을 오른쪽으로 발사, 왼쪽으로부터 250 간격줌
+      //     $('#침id').fadeOut(function () {
+      //       //익명함수
+      //       // 침이 fadeOut 된 다음 hp 깎이기
+      //       hp = hp - 1; // hp를 깎아줌
+      //       $('#hpid').text('HP:' + hp);
+      //     });
+      //     $('#침id').css({ left: '150px' }); //원래 위치의 css left 값
+
+      //     // 위의 코드가 끝나고 난뒤에 실행되어야 하는데
+      //     // 빨리 실행되는 hp 가 깎이는 동작이 먼저 일어나게 된다
+      //     // 익명함수를 침이 fadeOut 된 다음 작동되게 만들어 hp 깎이기
+      //     // hp = hp - 1; // hp를 깎아줌
+      //     // $('#hpid').text('HP:' + hp);
+      //   });
+
+      // 6.
+      //   var hp = 3;
+      //   $('#드론id').click(function () {
+      //     $('#침id').fadeIn();
+      //     $('#침id').animate({ left: '+=250' }); // 침을 오른쪽으로 발사, 왼쪽으로부터 250 간격줌
+      //     $('#침id').fadeOut(function () {
+      //       hp = hp - 1;
+      //       $('#hpid').text('HP:' + hp);
+      //       if (hp == 0) {
+      //         $('#bunker').fadeOut();
+      //       }
+      //     });
+      //     $('#침id').css({ left: '150px' });
+      //   });
+    </script>
+  </body>
+</html>

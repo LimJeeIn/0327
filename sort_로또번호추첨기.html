@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sort 배열 정렬</title>
+  </head>
+  <body>
+    <script>
+      //sort 예제
+      //   var lotto = [1, 2, 6, 77, 11, 23];
+      //   //순서가 뒤죽박죽 나옴
+      //   lotto.sort(); //1,11,2,23,6,77
+      //   //오름차순 정렬, 내림차순은 b-a
+      //   lotto.sort((a, b) => a - b); //1,2,6,11,23,77
+      //   document.write(lotto);
+
+      // 로또 번호를 정렬하라
+      var lotto = [];
+      while (lotto.length < 6) {
+        var num = parseInt(Math.random() * 45 + 1);
+        if (lotto.indexOf(num) == -1) {
+          //   console.log(lotto.indexOf(num));
+          lotto.push(num);
+        }
+      }
+      lotto.sort((a, b) => a - b);
+      document.write(lotto);
+    </script>
+  </body>
+</html>
